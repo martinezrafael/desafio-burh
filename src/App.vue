@@ -1,5 +1,9 @@
 <template>
   <h1>Desafio Burh | Frontend</h1>
+  <button @click="handleFilterUserPosts()">
+    Buscar posts do usuário: {{ user }}
+  </button>
+
   <div v-for="post in postsFetched" :key="post.id">
     <p>Post:{{ post.id }}</p>
     <p>User: {{ post.userId }}</p>
@@ -14,6 +18,7 @@ import { ref } from "vue";
 import * as api from "../src/services/api";
 
 const postsFetched = ref([]);
+const user = ref(1);
 
 const handleFetchData = async () => {
   try {
@@ -62,7 +67,14 @@ const handleDeletePost = async (postId) => {
   }
 };
 
-handleFetchData();
+const handleFilterUserPosts = async () => {
+  try {
+    const response = await api.filterUserPosts(user.value);
+    console.log(response.data);
+  } catch (error) {
+    console.error(error.message);
+  }
+};
 </script>
 
 <style scoped></style>

@@ -39,3 +39,11 @@ export const deletePost = async (id) => {
     console.error({ message: error.message });
   }
 };
+
+export const filterUserPosts = async (userId) => {
+  try {
+    return await api.get(`/posts?userId=${userId}`);
+  } catch (error) {
+    console.error({ message: error.message });
+  }
+};
