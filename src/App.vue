@@ -1,18 +1,12 @@
 <template>
-  <h1>Desafio Burh | Frontend</h1>
-
-  <div v-for="post in postsFetched" :key="post.id">
-    <p>Post:{{ post.id }}</p>
-    <p>User: {{ post.userId }}</p>
-    <h2>{{ post.title }}</h2>
-    <p>{{ post.body }}</p>
-    <button @click="handleDeletePost(post.id)">Excluir Post</button>
-  </div>
+  <h1>Blog Burh</h1>
+  <Post :userId="1" :id="1" title="Título do post" body="Conteúdo do post" />
 </template>
 
 <script setup>
 import { ref } from "vue";
 import * as api from "../src/services/api";
+import Post from "./components/Blog/Postagens/Post.vue";
 
 const postsFetched = ref([]);
 const user = ref(1);
