@@ -5,6 +5,7 @@
     <p>User: {{ post.userId }}</p>
     <h2>{{ post.title }}</h2>
     <p>{{ post.body }}</p>
+    <button @click="handleDeletePost(post.id)">Excluir Post</button>
   </div>
 </template>
 
@@ -46,6 +47,16 @@ const handlesubmitUpdate = async () => {
       userId: 1,
     };
     await api.updatePost(bodyUpdate);
+  } catch (error) {
+    console.error(error.message);
+  }
+};
+
+const handleDeletePost = async (postId) => {
+  try {
+    await api.deletePost(postId);
+    console.log("Post Excluído com sucesso");
+    handleFetchData();
   } catch (error) {
     console.error(error.message);
   }

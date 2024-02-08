@@ -31,3 +31,11 @@ export const updatePost = async (body) => {
     console.error({ message: error.message });
   }
 };
+
+export const deletePost = async (id) => {
+  try {
+    return await api.delete(`/posts/${id}`);
+  } catch (error) {
+    console.error({ message: error.message });
+  }
+};
