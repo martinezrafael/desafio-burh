@@ -1,13 +1,10 @@
 <template>
-  <h2>{{ postsCreated.title }}</h2>
-  <p>{{ postsCreated.body }}</p>
-  <span>{{ postsCreated.userId }}</span>
-
   <h1>Desafio Burh | Frontend</h1>
   <div v-for="post in postsFetched" :key="post.id">
+    <p>Post:{{ post.id }}</p>
+    <p>User: {{ post.userId }}</p>
     <h2>{{ post.title }}</h2>
     <p>{{ post.body }}</p>
-    <span>{{ post.userId }}</span>
   </div>
 </template>
 
@@ -16,7 +13,6 @@ import { ref } from "vue";
 import * as api from "../src/services/api";
 
 const postsFetched = ref([]);
-const postsCreated = ref([]);
 
 const handleFetchData = async () => {
   try {
@@ -30,18 +26,31 @@ const handleFetchData = async () => {
 const handleSubmitCreate = async () => {
   try {
     const bodyCreate = {
-      title: "Teste",
-      body: "Teste do Rafael",
+      title: "Teste 2",
+      body: "Teste do Rafael numero 2",
       userId: 2,
     };
     const response = await api.createPost(bodyCreate);
-    postsCreated.value = response.data;
+    postsFetched.value.push(response.data);
   } catch (error) {
     console.error(error.message);
   }
 };
 
-handleSubmitCreate();
+const handlesubmitUpdate = async () => {
+  try {
+    const bodyUpdate = {
+      id: 101,
+      title: "mudou o titulo",
+      body: "mudou o body",
+      userId: 1,
+    };
+    await api.updatePost(bodyUpdate);
+  } catch (error) {
+    console.error(error.message);
+  }
+};
+
 handleFetchData();
 </script>
 

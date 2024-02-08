@@ -22,3 +22,12 @@ export const createPost = async (body) => {
     console.error({ message: error.message });
   }
 };
+
+export const updatePost = async (body) => {
+  const { id } = body;
+  try {
+    return await api.put(`/posts/${id}`, body);
+  } catch (error) {
+    console.error({ message: error.message });
+  }
+};
