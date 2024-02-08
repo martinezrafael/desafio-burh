@@ -14,3 +14,11 @@ export const getAllPosts = async () => {
     console.error({ message: error.message });
   }
 };
+
+export const createPost = async (body) => {
+  try {
+    return await api.post("/posts", body);
+  } catch (error) {
+    console.error({ message: error.message });
+  }
+};
