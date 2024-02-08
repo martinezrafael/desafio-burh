@@ -11,20 +11,6 @@ import Posts from "../src/components/Blog/Postagens/Posts.vue";
 const user = ref(1);
 const postId = ref(1);
 
-const handlesubmitUpdate = async () => {
-  try {
-    const bodyUpdate = {
-      id: 101,
-      title: "mudou o titulo",
-      body: "mudou o body",
-      userId: 1,
-    };
-    await api.updatePost(bodyUpdate);
-  } catch (error) {
-    console.error(error.message);
-  }
-};
-
 const handleDeletePost = async (postId) => {
   try {
     await api.deletePost(postId);

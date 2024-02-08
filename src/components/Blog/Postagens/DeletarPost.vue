@@ -1,0 +1,25 @@
+<template>
+  <button @click="handleDelete(id)">Deletar Post</button>
+</template>
+
+<script setup>
+import { defineProps } from "vue";
+import * as api from "../../../services/api";
+
+const props = defineProps({
+  id: {
+    type: Number,
+    required: true,
+    validator: (value) => Number.isInteger(value),
+  },
+});
+
+const handleDelete = async (postId) => {
+  try {
+    await api.deletePost(postId);
+    console.log(`Post ${postId} deletado com sucesso!`);
+  } catch (error) {
+    console.error(error.message);
+  }
+};
+</script>
