@@ -1,5 +1,6 @@
 <template>
   <section class="posts">
+    <FormCriarPost />
     <div class="posts__list" v-for="post in postsFetched" :key="post.id">
       <Post
         :userId="post.userId"
@@ -14,6 +15,7 @@
 <script setup>
 import { ref } from "vue";
 import * as api from "../../../services/api";
+import FormCriarPost from "../Postagens/FormCriarPost.vue";
 import Post from "../Postagens/Post.vue";
 
 const postsFetched = ref([]);

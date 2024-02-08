@@ -8,32 +8,8 @@ import { ref } from "vue";
 import * as api from "../src/services/api";
 import Posts from "../src/components/Blog/Postagens/Posts.vue";
 
-const postsFetched = ref([]);
 const user = ref(1);
 const postId = ref(1);
-
-const handleFetchData = async () => {
-  try {
-    const response = await api.getAllPosts();
-    postsFetched.value = response.data;
-  } catch (error) {
-    console.error(error.message);
-  }
-};
-
-const handleSubmitCreate = async () => {
-  try {
-    const bodyCreate = {
-      title: "Teste 2",
-      body: "Teste do Rafael numero 2",
-      userId: 2,
-    };
-    const response = await api.createPost(bodyCreate);
-    postsFetched.value.push(response.data);
-  } catch (error) {
-    console.error(error.message);
-  }
-};
 
 const handlesubmitUpdate = async () => {
   try {
@@ -53,7 +29,6 @@ const handleDeletePost = async (postId) => {
   try {
     await api.deletePost(postId);
     console.log("Post Excluído com sucesso");
-    handleFetchData();
   } catch (error) {
     console.error(error.message);
   }
@@ -75,7 +50,7 @@ const handleFetchCommentsPost = async () => {
     console.error(error.message);
   }
 };
-handleFetchData();
+
 handleFetchCommentsPost();
 </script>
 
