@@ -1,12 +1,12 @@
 <template>
   <h1>Blog Burh</h1>
-  <Post :userId="1" :id="1" title="Título do post" body="Conteúdo do post" />
+  <Posts />
 </template>
 
 <script setup>
 import { ref } from "vue";
 import * as api from "../src/services/api";
-import Post from "./components/Blog/Postagens/Post.vue";
+import Posts from "../src/components/Blog/Postagens/Posts.vue";
 
 const postsFetched = ref([]);
 const user = ref(1);

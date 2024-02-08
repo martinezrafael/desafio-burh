@@ -1,8 +1,8 @@
 <template>
   <div class="post">
     <div class="post__header">
-      <span class="post__user">{{ userId }}</span>
-      <span class="post__number">{{ id }}</span>
+      <span class="post__user">Usuário:{{ userId }}</span>
+      <span class="post__number">Post número: {{ id }}</span>
     </div>
     <div class="post__content">
       <h2 class="post__content__title">{{ title }}</h2>
