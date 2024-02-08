@@ -1,8 +1,5 @@
 <template>
   <h1>Desafio Burh | Frontend</h1>
-  <button @click="handleFilterUserPosts()">
-    Buscar posts do usuário: {{ user }}
-  </button>
 
   <div v-for="post in postsFetched" :key="post.id">
     <p>Post:{{ post.id }}</p>
@@ -19,6 +16,7 @@ import * as api from "../src/services/api";
 
 const postsFetched = ref([]);
 const user = ref(1);
+const postId = ref(1);
 
 const handleFetchData = async () => {
   try {
@@ -75,6 +73,16 @@ const handleFilterUserPosts = async () => {
     console.error(error.message);
   }
 };
+
+const handleFetchCommentsPost = async () => {
+  try {
+    const response = await api.getCommentsPost(postId.value);
+  } catch (error) {
+    console.error(error.message);
+  }
+};
+handleFetchData();
+handleFetchCommentsPost();
 </script>
 
 <style scoped></style>

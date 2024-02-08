@@ -47,3 +47,11 @@ export const filterUserPosts = async (userId) => {
     console.error({ message: error.message });
   }
 };
+
+export const getCommentsPost = async (id) => {
+  try {
+    return await api.get(`/posts/${id}/comments`);
+  } catch (error) {
+    console.error({ message: error.message });
+  }
+};
