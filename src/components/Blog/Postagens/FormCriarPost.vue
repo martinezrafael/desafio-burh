@@ -66,7 +66,7 @@ const handleSubmit = async () => {
 
     const response = await api.createPost(body);
 
-    postsCreated.value.push(response.data); // Utilize push() para adicionar a nova postagem à lista
+    postsCreated.value.push(response.data);
 
     postUserId.value = "";
     postTitle.value = "";

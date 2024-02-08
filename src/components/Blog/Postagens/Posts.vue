@@ -25,7 +25,6 @@
         </button>
       </div>
       <div v-else-if="post.showComments">
-        <!-- Correção: Renderizar comentários somente se showComments for verdadeiro -->
         <div class="post__comments" v-if="commentsFetched[post.id]">
           <button @click="hideComments(post)">Esconder Comentários</button>
           <Comentario
@@ -50,6 +49,7 @@ import FormCriarPost from "../Postagens/FormCriarPost.vue";
 import Post from "../Postagens/Post.vue";
 import DeletarPost from "../Postagens/DeletarPost.vue";
 import Comentario from "../Comentarios/Comentario.vue";
+import FiltrarPost from "../Postagens/FiltrarPost.vue";
 
 const postsFetched = ref([]);
 const commentsFetched = ref({});
