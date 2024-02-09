@@ -1,8 +1,10 @@
 <template>
   <section class="post__create">
-    <div v-if="!creatingPost">
-      <h2>Crie seu post agora mesmo</h2>
-      <button @click="createPost">Criar um Post</button>
+    <div class="post__create__wrapper" v-if="!creatingPost">
+      <h2 class="post__create___title">Crie seu post agora mesmo</h2>
+      <button class="post__create___btn" @click="createPost">
+        Criar um Post
+      </button>
     </div>
     <div v-else>
       <form class="post__create___form" @submit.prevent="handleSubmit">

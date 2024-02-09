@@ -6,7 +6,8 @@
   box-sizing: border-box;
 }
 
-.post__btn___delete {
+.post__btn___delete,
+.post__create___btn {
   background-color: #9438f5;
   border: none;
   border-radius: 4px;
@@ -19,7 +20,8 @@
   padding: 8px 24px;
   transition: all ease-in-out 0.3s;
 }
-.post__btn___delete:hover {
+.post__btn___delete:hover,
+.post__create___btn:hover {
   background-color: #872be8;
   color: #fff;
 }
@@ -40,6 +42,26 @@
   font-family: "Poppins", sans-serif;
   font-weight: 900;
   font-size: 40px;
+}
+
+.post__create {
+  background-image: url("https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 60vh;
+}
+.post__create .post__create__wrapper .post__create___title {
+  color: #131516;
+  font-family: "Poppins", sans-serif;
+  font-size: 32px;
+  font-weight: 900;
+  margin-bottom: 12px;
 }
 
 html,
