@@ -79,7 +79,6 @@ const saveEditedPost = async (post) => {
     postBeingEdited.value = null;
     newTitle.value = "";
     newBody.value = "";
-    console.log("Post Editado com Sucesso");
     await handleFetchPosts();
   } catch (error) {
     console.error(error.message);

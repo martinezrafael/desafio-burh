@@ -1,5 +1,7 @@
 <template>
-  <button @click="handleDelete(id)">Deletar Post</button>
+  <button class="post__btn___delete" @click="handleDelete(id)">
+    Deletar Post
+  </button>
 </template>
 
 <script setup>
@@ -23,3 +25,9 @@ const handleDelete = async (postId) => {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.post__btn___delete {
+  background-color: $red;
+}
+</style>
