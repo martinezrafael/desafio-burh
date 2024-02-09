@@ -128,6 +128,45 @@
   color: #872be8;
 }
 
+.posts .posts__list {
+  margin: auto;
+  margin-bottom: 40px;
+  max-width: 95%;
+}
+
+.post {
+  background-color: #eee;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  padding: 0px 8px;
+}
+.post .post__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+}
+.post .post__header .post__user,
+.post .post__header .post__number {
+  background-color: #f2e7ff;
+  border-radius: 4px;
+  padding: 4px;
+}
+.post .post__content {
+  padding: 20px 0;
+}
+.post .post__content .post__content__title {
+  font-size: 24px;
+  line-height: 1.2;
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 12px;
+}
+.post .post__content .post__content___body {
+  font-size: 18px;
+  line-height: 1.4;
+}
+
 html,
 body {
   font-family: "Roboto", sans-serif;

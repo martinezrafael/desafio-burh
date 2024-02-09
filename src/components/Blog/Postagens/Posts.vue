@@ -124,3 +124,5 @@ const hideComments = (post) => {
 
 handleFetchPosts();
 </script>
+
+<style lang="scss" scoped></style>
