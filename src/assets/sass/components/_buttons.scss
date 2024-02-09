@@ -1,5 +1,4 @@
-.post__btn___delete,
-.post__create___btn {
+.post__btn___delete {
   background-color: $p2;
   border: none;
   border-radius: $b-radius4;
@@ -9,11 +8,47 @@
   font-family: $ft-titles;
   font-weight: 600;
   font-size: 16px;
-  padding: 8px 24px;
+  padding: 12px 32px;
   transition: all ease-in-out 0.3s;
 
   &:hover {
     background-color: $p1;
     color: $white;
   }
+}
+
+.post__create-btn {
+  background-color: $p2;
+  border: none;
+  border-radius: $b-radius4;
+  color: $p9;
+  font-family: $ft-titles;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 24px 32px;
+  width: 300px;
+}
+
+.post__create-submit {
+  background-color: $p2;
+  border: none;
+  border-radius: $b-radius4;
+  color: $p9;
+  font-family: $ft-titles;
+  font-size: 20px;
+  font-weight: 600;
+  height: 60px;
+  width: 50%;
+}
+
+.post__create-cancel {
+  background-color: $p5;
+  border: none;
+  border-radius: $b-radius4;
+  color: $p9;
+  font-family: $ft-titles;
+  font-size: 20px;
+  font-weight: 600;
+  height: 60px;
+  width: 50%;
 }

@@ -6,8 +6,7 @@
   box-sizing: border-box;
 }
 
-.post__btn___delete,
-.post__create___btn {
+.post__btn___delete {
   background-color: #9438f5;
   border: none;
   border-radius: 4px;
@@ -17,17 +16,52 @@
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-size: 16px;
-  padding: 8px 24px;
+  padding: 12px 32px;
   transition: all ease-in-out 0.3s;
 }
-.post__btn___delete:hover,
-.post__create___btn:hover {
+.post__btn___delete:hover {
   background-color: #872be8;
   color: #fff;
 }
 
+.post__create-btn {
+  background-color: #9438f5;
+  border: none;
+  border-radius: 4px;
+  color: #f2e7ff;
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 24px 32px;
+  width: 300px;
+}
+
+.post__create-submit {
+  background-color: #9438f5;
+  border: none;
+  border-radius: 4px;
+  color: #f2e7ff;
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  height: 60px;
+  width: 50%;
+}
+
+.post__create-cancel {
+  background-color: #bf82ff;
+  border: none;
+  border-radius: 4px;
+  color: #f2e7ff;
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  height: 60px;
+  width: 50%;
+}
+
 .header {
-  padding: 32px 0;
+  padding: 24px 0;
 }
 .header .header__container {
   max-width: 90%;
@@ -44,24 +78,54 @@
   font-size: 40px;
 }
 
-.post__create {
-  background-image: url("https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
+.post__create-intro {
+  background-color: #1b1d20;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  height: 60vh;
+  height: 80vh;
+  margin-bottom: 40px;
 }
-.post__create .post__create__wrapper .post__create___title {
-  color: #131516;
+.post__create-intro .post__create-wrapper .post__create-title {
+  color: #686b6f;
   font-family: "Poppins", sans-serif;
   font-size: 32px;
-  font-weight: 900;
-  margin-bottom: 12px;
+  margin-bottom: 20px;
+}
+.post__create-intro .post__create-formWrapper .post__create-titleForm {
+  color: #686b6f;
+  font-family: "Poppins", sans-serif;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+.post__create-intro .post__create-formWrapper .post__create-formRow {
+  margin-bottom: 8px;
+}
+.post__create-intro .post__create-formWrapper .post__create-formRow .post__create-label {
+  color: #a450fd;
+  display: block;
+  text-align: left;
+  margin-bottom: 4px;
+}
+.post__create-intro .post__create-formWrapper .post__create-formRow .post__create-input {
+  border: 1px solid #a450fd;
+  border-radius: 4px;
+  height: 60px;
+  padding: 8px;
+  width: 340px;
+}
+.post__create-intro .post__create-formWrapper .post__create-formRow .post__create-textarea {
+  padding: 8px;
+  width: 340px;
+  height: 100px;
+}
+.post__create-intro .post__create-formWrapper .post__created {
+  margin-top: 12px;
+  padding: 14px 0;
+}
+.post__create-intro .post__create-formWrapper .post__created .post__created__message {
+  color: #872be8;
 }
 
 html,

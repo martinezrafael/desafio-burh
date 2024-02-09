@@ -1,37 +1,53 @@
 <template>
-  <section class="post__create">
-    <div class="post__create__wrapper" v-if="!creatingPost">
-      <h2 class="post__create___title">Crie seu post agora mesmo</h2>
-      <button class="post__create___btn" @click="createPost">
+  <section class="post__create-intro">
+    <div class="post__create-wrapper" v-if="!creatingPost">
+      <h2 class="post__create-title">Crie seu post agora mesmo</h2>
+      <button class="post__create-btn" @click="createPost">
         Criar um Post
       </button>
     </div>
-    <div v-else>
-      <form class="post__create___form" @submit.prevent="handleSubmit">
-        <div>
-          <label for="postUserId">Id do Usuário</label>
-          <input id="postUserId" type="text" v-model="postUserId" />
+    <div class="post__create-formWrapper" v-else>
+      <form class="post__create-form" @submit.prevent="handleSubmit">
+        <div class="post__create-formRow">
+          <label class="post__create-label" for="postUserId"
+            >Id do Usuário</label
+          >
+          <input
+            id="postUserId"
+            class="post__create-input"
+            type="text"
+            v-model="postUserId"
+            required
+          />
         </div>
-        <div>
-          <label for="postTitle">Título</label>
-          <input id="postTitle" type="text" v-model="postTitle" />
+        <div class="post__create-formRow">
+          <label class="post__create-label" for="postTitle">Título</label>
+          <input
+            id="postTitle"
+            class="post__create-input"
+            type="text"
+            v-model="postTitle"
+            required
+          />
         </div>
-        <div>
-          <label for="postBody">Conteúdo</label>
-          <textarea name="postBody" id="postBody" v-model="postBody"></textarea>
+        <div class="post__create-formRow">
+          <label class="post__create-label" for="postBody">Conteúdo</label>
+          <textarea
+            id="postBody"
+            class="post__create-textarea"
+            v-model="postBody"
+            required
+          ></textarea>
         </div>
-        <button type="submit">Criar Post</button>
-        <button @click="cancelEditPost">Cancelar</button>
+        <div class="post__create-buttons">
+          <button type="submit" class="post__create-submit">Salvar</button>
+          <button @click="cancelEditPost" class="post__create-cancel">
+            Cancelar
+          </button>
+        </div>
       </form>
-      <div v-if="postsCreated.length > 0">
-        <postCreated
-          v-for="post in postsCreated"
-          :key="post.id"
-          :userId="post.userId"
-          :id="post.id"
-          :title="post.title"
-          :body="post.body"
-        />
+      <div v-if="postsCreated.length > 0" class="post__created">
+        <h2 class="post__created__message">Post Criado com sucesso! 🎉</h2>
       </div>
     </div>
   </section>
