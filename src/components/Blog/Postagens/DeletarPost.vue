@@ -26,8 +26,4 @@ const handleDelete = async (postId) => {
 };
 </script>
 
-<style lang="scss" scoped>
-.post__btn___delete {
-  background-color: $red;
-}
-</style>
+<style lang="scss" scoped></style>

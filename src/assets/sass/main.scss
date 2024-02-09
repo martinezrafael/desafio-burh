@@ -1,1 +1,8 @@
-$red: red;
+@import "../sass/base/reset";
+@import "../sass/abstracts/variables";
+
+html,
+body {
+  font-family: $ft-text;
+  font-size: $ft-size-text-desktop;
+}
