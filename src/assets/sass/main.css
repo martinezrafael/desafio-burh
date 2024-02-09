@@ -24,6 +24,24 @@
   color: #fff;
 }
 
+.header {
+  padding: 32px 0;
+}
+.header .header__container {
+  max-width: 90%;
+  margin: auto;
+  text-align: center;
+}
+.header .header__container .logo__href {
+  color: #872be8;
+  text-decoration: none;
+}
+.header .header__container .logo__href .logo {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-size: 40px;
+}
+
 html,
 body {
   font-family: "Roboto", sans-serif;
