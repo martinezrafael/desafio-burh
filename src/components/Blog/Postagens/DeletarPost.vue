@@ -1,5 +1,6 @@
 <template>
   <button class="post__btn___delete" @click="handleDelete(id)">
+    <img src="../../../assets/sass/image/icons/trash.svg" alt="" />
     Deletar Post
   </button>
 </template>

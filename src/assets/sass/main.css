@@ -6,6 +6,24 @@
   box-sizing: border-box;
 }
 
+.post__btn___delete {
+  background-color: #9438f5;
+  border: none;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  color: #f2e7ff;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 8px 24px;
+  transition: all ease-in-out 0.3s;
+}
+.post__btn___delete:hover {
+  background-color: #872be8;
+  color: #fff;
+}
+
 html,
 body {
   font-family: "Roboto", sans-serif;

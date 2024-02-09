@@ -1,0 +1,18 @@
+.post__btn___delete {
+  background-color: $p2;
+  border: none;
+  border-radius: $b-radius4;
+  box-shadow: $box-shadow;
+  color: $p9;
+  cursor: pointer;
+  font-family: $ft-titles;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 8px 24px;
+  transition: all ease-in-out 0.3s;
+
+  &:hover {
+    background-color: $p1;
+    color: $white;
+  }
+}
