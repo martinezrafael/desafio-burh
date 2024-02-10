@@ -10,11 +10,51 @@
         {{ body }}
       </p>
     </div>
+    <div class="post__comments">
+      <div v-if="!showComments">
+        <button @click="openComments">Comentários</button>
+      </div>
+      <div v-else>
+        <Comentario
+          v-for="comment in commentsFetched[id]"
+          :key="comment.id"
+          :email="comment.email"
+          :name="comment.name"
+          :body="comment.body"
+          :PostId="comment.postId"
+          :id="comment.id"
+        />
+        <button @click="hideComments">Esconder comentários</button>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup>
-import { defineProps } from "vue";
+import { ref, defineProps } from "vue";
+import Comentario from "../Comentarios/Comentario.vue";
+import * as api from "../../../services/api";
+
+const commentsFetched = ref([]);
+
+const handleFetchComments = async (postId) => {
+  try {
+    const response = await api.getCommentsPost(postId);
+    commentsFetched.value[postId] = response.data;
+  } catch (error) {
+    console.error(error.message);
+  }
+};
+
+const showComments = ref(false);
+
+const openComments = () => {
+  showComments.value = true;
+};
+
+const hideComments = () => {
+  showComments.value = false;
+};
 
 const props = defineProps({
   userId: {
@@ -36,6 +76,8 @@ const props = defineProps({
     required: true,
   },
 });
+
+handleFetchComments(props.id);
 </script>
 
 <style lang="scss" scoped></style>

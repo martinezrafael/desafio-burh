@@ -19,25 +19,6 @@
         <button @click="saveEditedPost(post)">Salvar</button>
         <button @click="cancelEditPost">Cancelar</button>
       </div>
-      <div v-if="!post.showComments && !updatingPost">
-        <button @click="showComments(post)">
-          Ler Comentários ({{ commentsFetched[post.id]?.length || 0 }})
-        </button>
-      </div>
-      <div v-else-if="post.showComments">
-        <div class="post__comments" v-if="commentsFetched[post.id]">
-          <button @click="hideComments(post)">Esconder Comentários</button>
-          <Comentario
-            v-for="comment in commentsFetched[post.id]"
-            :key="comment.id"
-            :email="comment.email"
-            :name="comment.name"
-            :body="comment.body"
-            :PostId="comment.postId"
-            :id="comment.id"
-          />
-        </div>
-      </div>
     </div>
   </section>
 </template>
@@ -48,11 +29,8 @@ import * as api from "../../../services/api";
 import FormCriarPost from "../Postagens/FormCriarPost.vue";
 import Post from "../Postagens/Post.vue";
 import DeletarPost from "../Postagens/DeletarPost.vue";
-import Comentario from "../Comentarios/Comentario.vue";
-import FiltrarPost from "../Postagens/FiltrarPost.vue";
 
 const postsFetched = ref([]);
-const commentsFetched = ref({});
 
 const updatingPost = ref(false);
 const postBeingEdited = ref(null);
@@ -96,30 +74,9 @@ const handleFetchPosts = async () => {
   try {
     const response = await api.getAllPosts();
     postsFetched.value = response.data;
-    for (const post of postsFetched.value) {
-      await handleFetchComments(post.id);
-      post.showComments = false;
-    }
   } catch (error) {
     console.error(error.message);
   }
-};
-
-const handleFetchComments = async (postId) => {
-  try {
-    const response = await api.getCommentsPost(postId);
-    commentsFetched.value[postId] = response.data;
-  } catch (error) {
-    console.error(error.message);
-  }
-};
-
-const showComments = (post) => {
-  post.showComments = true;
-};
-
-const hideComments = (post) => {
-  post.showComments = false;
 };
 
 handleFetchPosts();
