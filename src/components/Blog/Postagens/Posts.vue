@@ -9,7 +9,6 @@
           :title="post.title"
           :body="post.body"
         />
-        <DeletarPost :id="post.id" />
         <button @click="editPost(post)">Editar Post</button>
       </div>
       <div v-else-if="post.id === postBeingEdited.id">
@@ -28,7 +27,6 @@ import { ref } from "vue";
 import * as api from "../../../services/api";
 import FormCriarPost from "../Postagens/FormCriarPost.vue";
 import Post from "../Postagens/Post.vue";
-import DeletarPost from "../Postagens/DeletarPost.vue";
 
 const postsFetched = ref([]);
 

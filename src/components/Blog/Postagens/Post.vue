@@ -10,9 +10,10 @@
         {{ body }}
       </p>
     </div>
+    <DeletarPost :id="id" />
     <div class="post__comments">
       <div v-if="!showComments">
-        <button @click="openComments">Comentários</button>
+        <button @click="openComments">Ler Comentários</button>
       </div>
       <div v-else>
         <Comentario
@@ -32,6 +33,7 @@
 
 <script setup>
 import { ref, defineProps } from "vue";
+import DeletarPost from "./DeletarPost.vue";
 import Comentario from "../Comentarios/Comentario.vue";
 import * as api from "../../../services/api";
 

@@ -56,7 +56,6 @@
 <script setup>
 import { ref } from "vue";
 import * as api from "../../../services/api";
-import PostCreated from "../Postagens/PostCreated.vue";
 
 const creatingPost = ref(false);
 
