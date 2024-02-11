@@ -1,12 +1,14 @@
 <template>
-  <button class="post__btn___delete" @click="handleDelete(id)">
-    <img src="../../../assets/sass/image/icons/trash.svg" alt="" />
-    Deletar Post
-  </button>
+  <div>
+    <button class="post__delete-btn" @click="handleDelete">Deletar Post</button>
+    <div v-if="postDeleted" class="post__deleted-message">
+      O post {{ id }} foi deletado com sucesso!
+    </div>
+  </div>
 </template>
 
 <script setup>
-import { defineProps } from "vue";
+import { ref, defineProps } from "vue";
 import * as api from "../../../services/api";
 
 const props = defineProps({
@@ -17,10 +19,17 @@ const props = defineProps({
   },
 });
 
-const handleDelete = async (postId) => {
+const postDeleted = ref(false);
+
+const handleDelete = async () => {
   try {
-    await api.deletePost(postId);
-    console.log(`Post ${postId} deletado com sucesso!`);
+    const confirmDelete = confirm("Tem certeza que deseja deletar o post?");
+    if (confirmDelete) {
+      await api.deletePost(props.id);
+      postDeleted.value = true;
+    } else {
+      console.log("Exclusão cancelada pelo usuário.");
+    }
   } catch (error) {
     console.error(error.message);
   }

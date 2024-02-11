@@ -13,9 +13,12 @@
     <DeletarPost :id="id" />
     <div class="post__comments">
       <div v-if="!showComments">
-        <button @click="openComments">Ler Comentários</button>
+        <button class="post__coments-btn" @click="openComments">
+          Ler Comentários
+        </button>
       </div>
       <div v-else>
+        <button @click="hideComments">Esconder comentários</button>
         <Comentario
           v-for="comment in commentsFetched[id]"
           :key="comment.id"
@@ -25,7 +28,6 @@
           :PostId="comment.postId"
           :id="comment.id"
         />
-        <button @click="hideComments">Esconder comentários</button>
       </div>
     </div>
   </div>
