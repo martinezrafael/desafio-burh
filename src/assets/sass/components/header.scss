@@ -1,0 +1,18 @@
+.header {
+  background-color: $c8;
+  padding: 32px 0px;
+  text-align: center;
+
+  .header__container {
+    .logo__href {
+      color: $p1;
+      text-decoration: none;
+
+      .logo {
+        font-family: $ft-titles;
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+}
