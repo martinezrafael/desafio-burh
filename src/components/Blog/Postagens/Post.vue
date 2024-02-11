@@ -14,11 +14,13 @@
     <div class="post__comments">
       <div v-if="!showComments">
         <button class="post__coments-btn" @click="openComments">
-          Ler Comentários
+          Ler os Comentários
         </button>
       </div>
       <div v-else>
-        <button @click="hideComments">Esconder comentários</button>
+        <button class="post__coments-btn" @click="hideComments">
+          Esconder comentários
+        </button>
         <Comentario
           v-for="comment in commentsFetched[id]"
           :key="comment.id"

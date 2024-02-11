@@ -9,14 +9,20 @@
           :title="post.title"
           :body="post.body"
         />
-        <button @click="editPost(post)">Editar Post</button>
+        <button class="post__edit-btn" @click="editPost(post)">
+          Editar Post
+        </button>
       </div>
       <div v-else-if="post.id === postBeingEdited.id">
         <span>Post número: {{ post.id }}</span>
         <input type="text" v-model="newTitle" />
         <input type="text" v-model="newBody" />
-        <button @click="saveEditedPost(post)">Salvar</button>
-        <button @click="cancelEditPost">Cancelar</button>
+        <button class="post__edit-btn-save" @click="saveEditedPost(post)">
+          Salvar
+        </button>
+        <button class="post__edit-btn-cancel" @click="cancelEditPost">
+          Cancelar
+        </button>
       </div>
     </div>
   </section>

@@ -6,7 +6,10 @@
   box-sizing: border-box;
 }
 
-.post__delete-btn {
+.post__delete-btn,
+.post__coments-btn,
+.post__edit-btn,
+.post__create-btn {
   border: none;
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -14,17 +17,70 @@
   font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-weight: 600;
-  padding: 8px 24px;
+  padding: 12px 24px;
+  width: 80%;
 }
 
-.post__delete-btn {
+.post__delete-btn,
+.post__create-cancel,
+.post__edit-btn-cancel {
   background-color: #ff8676;
   color: #ffe3df;
   transition: all ease-in-out 0.3s;
 }
-.post__delete-btn:hover {
+.post__delete-btn:hover,
+.post__create-cancel:hover,
+.post__edit-btn-cancel:hover {
   background-color: #fd6550;
   color: #fff;
+}
+
+.post__coments-btn {
+  background-color: #dcbbff;
+  color: #872be8;
+  transition: all ease-in-out 0.3s;
+}
+.post__coments-btn:hover {
+  background-color: #872be8;
+  color: #f2e7ff;
+}
+
+.post__edit-btn {
+  background-color: #6691ff;
+  color: #e1e8fc;
+  transition: all ease-in-out 0.3s;
+}
+.post__edit-btn:hover {
+  background-color: #5080fd;
+  color: #fff;
+}
+
+.post__create-btn,
+.post__create-submit,
+.post__edit-btn-save {
+  background-color: #872be8;
+  color: #f2e7ff;
+}
+.post__create-btn:hover,
+.post__create-submit:hover,
+.post__edit-btn-save:hover {
+  background-color: #a450fd;
+  color: #fff;
+}
+
+.post__create-submit,
+.post__create-cancel,
+.post__edit-btn-save,
+.post__edit-btn-cancel {
+  border: none;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 24px;
+  width: 50%;
 }
 
 html,

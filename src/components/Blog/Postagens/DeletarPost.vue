@@ -27,6 +27,9 @@ const handleDelete = async () => {
     if (confirmDelete) {
       await api.deletePost(props.id);
       postDeleted.value = true;
+      setTimeout(() => {
+        postDeleted.value = false;
+      }, 4000);
     } else {
       console.log("Exclusão cancelada pelo usuário.");
     }
