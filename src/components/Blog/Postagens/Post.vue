@@ -5,6 +5,10 @@
       <span class="post__id">Post: {{ postId }}</span>
     </div>
     <div class="post__content">
+      <span class="post__delete-message" v-if="!postDeleted"></span>
+      <span class="post__delete-message" v-else>
+        Post {{ postId }} deletado com sucesso!
+      </span>
       <h3 class="post__title">{{ postTitle }}</h3>
       <p class="post__body">
         {{ postBody }}
@@ -12,7 +16,9 @@
     </div>
     <div class="post__footer" v-if="!openComments">
       <button class="post__btn post__btn-edit">Editar</button>
-      <button class="post__btn post__btn-del">Deletar</button>
+      <button class="post__btn post__btn-del" @click="deletePost">
+        Deletar
+      </button>
       <button class="post__btn post__btn-comments" @click="showComments">
         Ler Comentários
       </button>
@@ -52,6 +58,7 @@
 
 <script setup>
 import { ref, defineProps } from "vue";
+import * as api from "../../../services/api";
 
 const props = defineProps({
   userId: {
@@ -88,6 +95,20 @@ const showComments = () => {
 
 const hideComments = () => {
   openComments.value = false;
+};
+
+const postDeleted = ref(false);
+
+const deletePost = async () => {
+  try {
+    await api.deletePost(props.postId);
+    postDeleted.value = true;
+    setTimeout(() => {
+      postDeleted.value = false;
+    }, 3000);
+  } catch (error) {
+    console.error({ message: error.message });
+  }
 };
 </script>
 
@@ -175,5 +196,11 @@ const hideComments = () => {
   font-size: 18px;
   line-height: 24px;
   margin-bottom: 20px;
+}
+
+.post__delete-message {
+  color: green;
+  margin: 12px 0;
+  display: inline-block;
 }
 </style>
