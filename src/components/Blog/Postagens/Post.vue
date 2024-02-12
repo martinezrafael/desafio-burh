@@ -13,9 +13,41 @@
       <p class="post__body">
         {{ postBody }}
       </p>
+      <div class="post__edit" v-if="!editingPost"></div>
+      <div class="post__edit" v-else>
+        <h4 class="post__edit-title">Formulário de Edição</h4>
+        <form @submit.prevent="handleSubmit" class="form__edit">
+          <div class="form__edit-row">
+            <label class="form__edit-label" for="postTitle">Título</label>
+            <input
+              class="form__edit-textinput"
+              type="text"
+              id="postTitle"
+              v-model="newTitle"
+              required
+            />
+          </div>
+          <div class="form__edit-row">
+            <label class="form__edit-label" for="postContent">Conteúdo</label>
+            <textarea
+              class="form__edit-textarea"
+              name="content"
+              id="postContent"
+              v-model="newBody"
+              required
+            ></textarea>
+          </div>
+          <button class="form__edit-submit" @click="updatePost">
+            Publicar
+          </button>
+          <button class="form__edit-cancel" @click="cancelEditPost">
+            Cancelar
+          </button>
+        </form>
+      </div>
     </div>
     <div class="post__footer" v-if="!openComments">
-      <button class="post__btn post__btn-edit">Editar</button>
+      <button class="post__btn post__btn-edit" @click="editPost">Editar</button>
       <button class="post__btn post__btn-del" @click="deletePost">
         Deletar
       </button>
@@ -87,6 +119,10 @@ const props = defineProps({
 
 const openComments = ref(false);
 const comments = ref([]);
+const postDeleted = ref(false);
+const editingPost = ref(false);
+const newTitle = ref(props.postTitle);
+const newBody = ref(props.postBody);
 
 const showComments = () => {
   openComments.value = true;
@@ -97,8 +133,6 @@ const hideComments = () => {
   openComments.value = false;
 };
 
-const postDeleted = ref(false);
-
 const deletePost = async () => {
   try {
     await api.deletePost(props.postId);
@@ -106,6 +140,32 @@ const deletePost = async () => {
     setTimeout(() => {
       postDeleted.value = false;
     }, 3000);
+    editingPost.value = false;
+  } catch (error) {
+    console.error({ message: error.message });
+  }
+};
+
+const editPost = () => {
+  editingPost.value = true;
+};
+
+const cancelEditPost = () => {
+  editingPost.value = false;
+};
+
+const updatePost = async () => {
+  try {
+    const payload = {
+      id: props.postId,
+      title: newTitle.value,
+      body: newBody.value,
+      userId: props.userId,
+    };
+    await api.updatePost(props.postId, payload);
+    newTitle.value = "";
+    newBody.value = "";
+    editingPost.value = false;
   } catch (error) {
     console.error({ message: error.message });
   }
@@ -144,7 +204,8 @@ const deletePost = async () => {
 }
 
 .post__title,
-.post__comments-title {
+.post__comments-title,
+.post__edit-title {
   color: #915dff;
   font-family: "Poppins", sans-serif;
   font-size: 24px;
@@ -202,5 +263,65 @@ const deletePost = async () => {
   color: green;
   margin: 12px 0;
   display: inline-block;
+}
+
+.form__edit {
+  padding: 20px 0;
+}
+
+.post__edit-title {
+  margin: 20px 0;
+}
+
+.form__edit-label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 18px;
+}
+
+.form__edit-textinput,
+.form__edit-textarea {
+  width: 100%;
+}
+
+.form__edit-textinput:focus,
+.form__edit-textarea:focus {
+  background: #cbb3ff;
+}
+
+.form__edit-textinput {
+  border: 1px solid #b1b0b5;
+  border-radius: 8px;
+  font-size: 18px;
+  height: 52px;
+  padding: 8px;
+  width: 100%;
+}
+
+.form__edit-textarea {
+  border: 1px solid #cbb3ff;
+  border-radius: 8px;
+  font-size: 18px;
+  height: 120px;
+  padding: 8px;
+  width: 100%;
+}
+
+.form__edit-submit,
+.form__edit-cancel {
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 12px 24px;
+}
+
+.form__edit-submit {
+  background: #915dff;
+  color: #e7dcff;
+}
+
+.form__edit-cancel {
+  background: #cbb3ff;
+  color: #915dff;
 }
 </style>
