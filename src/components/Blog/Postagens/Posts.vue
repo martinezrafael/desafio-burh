@@ -20,12 +20,12 @@ import * as api from "../../../services/api";
 import Post from "./Post.vue";
 
 const postsFetched = ref([]);
-const commentsFetched = ref({});
+const commentsFetched = ref([]);
 
 const handleFetchPosts = async () => {
   try {
     const response = await api.getAllPosts();
-    postsFetched.value = response.data;
+    postsFetched.value = response;
     for (const post of postsFetched.value) {
       const comments = await api.getCommentsPost(post.id);
       commentsFetched.value[post.id] = comments.data;

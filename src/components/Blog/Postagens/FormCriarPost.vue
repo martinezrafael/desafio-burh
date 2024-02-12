@@ -8,10 +8,9 @@
           Faça uma publicação no seu blog agora mesmo!
         </h2>
         <p class="post__description">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
-          tempora iste praesentium. Dolor veniam recusandae animi dicta quam
-          quos ex? Sit officia architecto cupiditate esse reprehenderit quo
-          dolorum autem voluptatem.
+          Não deixe a falta de inspiração te deter! Escreva agora mesmo para o
+          seu blog. Escolha um tópico relevante, estruture suas ideias e revise
+          com cuidado. Seus leitores estão esperando por você!
         </p>
         <button class="post__create-button" @click="startEditingPost">
           Escrever Publicação
@@ -20,8 +19,9 @@
       <div class="post__form-wrapper" v-else>
         <h2 class="post__title">Oba! Que legal que você decidiu postar!</h2>
         <p class="post__description">
-          Dica: Escreva sobre algo que você gosta muito! Música, Cinema,
-          Restaurantes, etc.
+          Dica: Pense em algo que você adora, seja música, cinema, restaurantes
+          ou qualquer outro assunto que te fascine. Afinal, escrever sobre o que
+          gostamos faz toda a diferença!
         </p>
         <form @submit.prevent="handleSubmit" class="post__form">
           <div class="post__form-row">
@@ -52,11 +52,14 @@
               id="postContent"
               v-model="body"
               required
+              maxlength="200"
+              placeholder="Máximo 200 caracteres"
+              @input="countCharacters"
             ></textarea>
+            <p>{{ sizeText }} caracteres digitados</p>
           </div>
           <div class="post__form-row post__form-rowbtn">
             <button class="post__form-submit" type="submit">Publicar</button>
-
             <button class="post__form-cancel" @click="stopEditingPost">
               Cancelar
             </button>
@@ -87,6 +90,12 @@ const userId = ref(null);
 const title = ref("");
 const body = ref("");
 
+const sizeText = ref(0);
+
+const countCharacters = () => {
+  sizeText.value = body.value.length;
+};
+
 const postCreated = ref({});
 
 const handleSubmit = async () => {
@@ -94,10 +103,10 @@ const handleSubmit = async () => {
     const payload = {
       title: title.value,
       body: body.value,
-      userId: userId.value,
+      userId: parseInt(userId.value),
     };
     const response = await api.createPost(payload);
-    postCreated.value = response.data;
+    postCreated.value = response;
 
     title.value = "";
     body.value = "";
