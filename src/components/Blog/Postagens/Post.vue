@@ -228,22 +228,44 @@ const updatePost = async () => {
 .post__btn {
   border: none;
   border-radius: 8px;
+  cursor: pointer;
   padding: 12px 24px;
 }
 
 .post__btn-edit {
   background-color: #915dff;
   color: #e7dcff;
+  transition: all ease-in-out 0.3s;
+}
+
+.post__btn-edit:hover {
+  background-image: linear-gradient(
+    90deg,
+    rgba(49, 16, 120, 1),
+    rgba(81, 0, 252, 1)
+  );
 }
 
 .post__btn-del {
   background-color: #cbb3ff;
   color: #915dff;
+  transition: all ease-in-out 0.3s;
+}
+
+.post__btn-del:hover {
+  background-color: #b795ff;
+  color: #fff;
 }
 
 .post__btn-comments {
   background-color: #c9c9c9;
   color: #414141;
+  transition: all ease-in-out 0.3s;
+}
+
+.post__btn-comments:hover {
+  background-color: #414141;
+  color: #c9c9c9;
 }
 
 .post__coments-header {
@@ -262,6 +284,7 @@ const updatePost = async () => {
 
 .post__delete-message {
   color: green;
+  font-weight: 900;
   margin: 12px 0;
   display: inline-block;
 }

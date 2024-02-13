@@ -84,6 +84,9 @@ const stopEditingPost = () => {
   if (postEditing) {
     postEditing.value = false;
   }
+  title.value = "";
+  body.value = "";
+  userId.value = "";
 };
 
 const userId = ref(null);
@@ -111,6 +114,8 @@ const handleSubmit = async () => {
     title.value = "";
     body.value = "";
     userId.value = "";
+
+    postEditing.value = false;
 
     console.log(postCreated.value);
   } catch (error) {
@@ -177,15 +182,6 @@ const handleSubmit = async () => {
     rgba(49, 16, 120, 1),
     rgba(81, 0, 252, 1)
   );
-  cursor: pointer;
-  border: none;
-  border-radius: 8px;
-  box-shadow: 0px 2px 1px #ddd;
-  color: #f9eeff;
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-  font-size: 18px;
-  padding: 24px 32px;
 }
 
 .post__form {
@@ -230,16 +226,27 @@ const handleSubmit = async () => {
   border-radius: 8px;
   box-shadow: 0px 2px 1px #ddd;
   color: #f9eeff;
+  cursor: pointer;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-size: 18px;
   margin-bottom: 4px;
   padding: 24px 32px;
   width: 100%;
+  transition: all ease-in-out 0.3s;
+}
+
+.post__form-submit:hover {
+  background-image: linear-gradient(
+    90deg,
+    rgba(49, 16, 120, 1),
+    rgba(81, 0, 252, 1)
+  );
 }
 
 .post__form-cancel {
   background-color: #f2f2f2;
+  cursor: pointer;
   border: none;
   border-radius: 8px;
   box-shadow: 0px 2px 1px #ddd;
@@ -249,6 +256,13 @@ const handleSubmit = async () => {
   font-size: 18px;
   padding: 24px 32px;
   width: 100%;
+
+  transition: all ease-in-out 0.3s;
+}
+
+.post__form-cancel:hover {
+  background-color: #b795ff;
+  color: #f9eeff;
 }
 
 @media screen and (min-width: 800px) {
