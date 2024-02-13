@@ -4,11 +4,13 @@
       <a class="logo__href" href="/">
         <h1 class="logo">{{ title }}</h1>
       </a>
+      <Navigation />
     </div>
   </header>
 </template>
 <script setup>
 import { defineProps } from "vue";
+import Navigation from "./Navigation.vue";
 
 const props = defineProps({
   title: {
@@ -28,6 +30,9 @@ const props = defineProps({
   max-width: 90%;
   margin: auto;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .logo {
