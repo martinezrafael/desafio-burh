@@ -1,6 +1,7 @@
 <template>
   <section class="posts">
     <div class="posts__container">
+      <h2 class="posts_list-title">Posts</h2>
       <div class="posts__list" v-for="post in postsFetched" :key="post.id">
         <Post
           :userId="post.userId"
@@ -47,5 +48,11 @@ onMounted(() => {
 .posts__container {
   max-width: 90%;
   margin: auto;
+}
+.posts_list-title {
+  color: #915dff;
+  font-size: 32px;
+  font-weight: 900;
+  margin: 20px 0;
 }
 </style>

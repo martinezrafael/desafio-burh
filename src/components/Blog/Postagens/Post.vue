@@ -348,4 +348,15 @@ const updatePost = async () => {
   background: #cbb3ff;
   color: #915dff;
 }
+
+@media screen and (min-width: 800px) {
+  .post {
+    margin-bottom: 12px;
+    padding: 24px 32px;
+  }
+
+  .post__header {
+    padding: 0;
+  }
+}
 </style>

@@ -12,7 +12,7 @@
 
 <script setup>
 import { ref } from "vue";
-const navItems = ref(["Página Inicial", "Posts", "Usuários"]);
+const navItems = ref(["Página Inicial", "Posts", "Usuários", "Contato"]);
 </script>
 
 <style scoped>

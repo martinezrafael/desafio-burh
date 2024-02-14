@@ -131,7 +131,6 @@ const handleSubmit = async () => {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  display: flex;
   margin-bottom: 40px;
   padding: 40px 0px;
   width: 100%;
@@ -140,6 +139,10 @@ const handleSubmit = async () => {
 .post__create-container {
   max-width: 90%;
   margin: auto;
+
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .post__title {
@@ -267,7 +270,7 @@ const handleSubmit = async () => {
 
 @media screen and (min-width: 800px) {
   .post__create {
-    height: 100vh;
+    height: 70vh;
   }
 
   .post__form-rowbtn {
