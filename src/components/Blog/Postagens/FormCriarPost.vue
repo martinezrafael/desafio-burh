@@ -270,7 +270,7 @@ const handleSubmit = async () => {
 
 @media screen and (min-width: 800px) {
   .post__create {
-    height: 70vh;
+    height: 100vh;
   }
 
   .post__form-rowbtn {
