@@ -54,7 +54,9 @@
               placeholder="Máximo 200 caracteres"
               @input="countCharacters"
             ></textarea>
-            <p>{{ sizeText }} caracteres digitados</p>
+            <p class="post__form-countCarachters">
+              {{ sizeText }} caracteres digitados
+            </p>
           </div>
           <div class="post__form-row post__form-rowbtn">
             <button class="post__form-submit" type="submit">Publicar</button>

@@ -1,0 +1,13 @@
+@mixin postTitle() {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.2;
+  margin-bottom: 12px;
+  font-size: 32px;
+  max-width: 600px;
+}
+
+@mixin secondTitlePost() {
+  color: $p4;
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+}

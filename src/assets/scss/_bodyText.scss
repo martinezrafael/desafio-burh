@@ -1,0 +1,12 @@
+@mixin postDescription() {
+  font-size: 20px;
+  line-height: 1.5;
+  max-width: 600px;
+  margin-bottom: 12px;
+}
+
+@mixin contentPost() {
+  color: $gray-6;
+  font-size: 18px;
+  line-height: 24px;
+}

@@ -1,0 +1,81 @@
+@mixin postCreateBtn() {
+  background-image: $gradient-2;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0px 2px 1px $gray-1;
+  color: $gray-2;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 24px 32px;
+
+  transition: all ease-in-out 0.3s;
+
+  &:hover {
+    background-image: $gradient-1;
+  }
+}
+
+@mixin postFormSubmit() {
+  background-color: $p4;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0px 2px 1px #ddd;
+  color: $gray-2;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 4px;
+  padding: 24px 32px;
+  width: 100%;
+  transition: all ease-in-out 0.3s;
+
+  &:hover {
+    background-image: linear-gradient(
+      90deg,
+      rgba(49, 16, 120, 1),
+      rgba(81, 0, 252, 1)
+    );
+  }
+}
+
+@mixin postFormCancel() {
+  background-color: $gray-3;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0px 2px 1px #ddd;
+  color: $gray-4;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 24px 32px;
+  width: 100%;
+
+  transition: all ease-in-out 0.3s;
+
+  &:hover {
+    background-color: $p3;
+    color: $gray-2;
+  }
+}
+
+@mixin btnUpdatedPost() {
+  background: $p4;
+  color: $p1;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 12px 24px;
+}
+
+@mixin btnCancelUpdatedPost() {
+  background: $p2;
+  color: $p4;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 12px 24px;
+}

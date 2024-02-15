@@ -38,6 +38,6 @@ const props = defineProps({
 }
 
 .logo__href {
-  color: #915dff;
+  color: $p4;
 }
 </style>

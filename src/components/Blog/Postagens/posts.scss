@@ -1,52 +1,204 @@
+@import "../../../assets/scss/colors";
+@import "../../../assets/scss/buttons";
+@import "../../../assets/scss/title";
+@import "../../../assets/scss/bodyText";
+@import "../../../assets/scss/input";
+
 .post__create {
-  background-image: url("../../../assets/image/bg/bg-intro.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  margin-bottom: 40px;
-  padding: 40px 0px;
+  background: url("../../../assets/image/bg/bg-intro.jpg") no-repeat
+    center/cover fixed;
+  padding: 24px 0px;
   width: 100%;
+
+  @media screen and (min-width: 800px) {
+    .post__create {
+      height: 100vh;
+    }
+  }
 
   .post__create-container {
     max-width: 90%;
     margin: auto;
 
-    height: 100%;
+    .post__create-cta {
+      padding: 12px 0;
+
+      .post__title {
+        @include postTitle;
+      }
+
+      .post__description {
+        @include postDescription;
+      }
+
+      .post__create-button {
+        @include postCreateBtn;
+      }
+    }
+
+    .post__form-wrapper {
+      .post__title {
+        @include postTitle;
+      }
+
+      .post__description {
+        @include postDescription;
+      }
+
+      .post__form {
+        width: 100%;
+
+        .post__form-row {
+          margin-bottom: 12px;
+
+          .post__form-label {
+            display: block;
+            margin-bottom: 4px;
+          }
+
+          .post__form-textinput {
+            @include postFormTextInput;
+          }
+
+          .post__form-textarea {
+            @include postFormTextArea;
+          }
+
+          .post__form-countCarachters {
+            color: #000;
+          }
+        }
+
+        .post__form-rowbtn {
+          display: flex;
+          flex-direction: column;
+
+          @media screen and (min-width: 800px) {
+            .post__form-rowbtn {
+              flex-direction: row;
+            }
+          }
+
+          .post__form-submit {
+            @include postFormSubmit;
+          }
+
+          .post__form-cancel {
+            @include postFormCancel;
+          }
+        }
+      }
+    }
+  }
+}
+
+.post {
+  background: $gray-1;
+  border: 1px solid $p4;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  padding: 6px;
+  width: 100%;
+
+  .post__header {
     display: flex;
-    align-items: center;
+    gap: 20px;
+    padding: 12px 0px;
+
+    .post__user {
+      background-color: $p2;
+      color: $p4;
+      padding: 2px;
+      border-radius: 4px;
+      box-shadow: 0px 2px 1px $p4;
+    }
+
+    .post__id {
+      background-color: $p2;
+      color: $p4;
+      padding: 2px;
+      border-radius: 4px;
+      box-shadow: 0px 2px 1px $p4;
+    }
+  }
+
+  .post__content {
+    padding: 12px 0px;
+
+    .post__delete-message {
+      color: $green;
+      margin: 12px 0;
+      display: inline-block;
+    }
 
     .post__title {
-      font-family: "Poppins", sans-serif;
-      line-height: 1.2;
-      margin-bottom: 12px;
-      font-size: 32px;
-      max-width: 600px;
+      @include secondTitlePost;
     }
 
-    .post__description {
-      font-size: 20px;
-      line-height: 1.5;
-      max-width: 600px;
-      margin-bottom: 12px;
+    .post__body {
+      @include contentPost;
     }
 
-    .post__create-button {
-      background-image: linear-gradient(
-        180deg,
-        rgba(119, 54, 255, 1),
-        rgba(81, 0, 252, 1)
-      );
-      cursor: pointer;
+    .post__edit {
+      margin-top: 12px;
+
+      .post__edit-title {
+        @include secondTitlePost;
+      }
+
+      .form__edit {
+        padding: 4px 0;
+
+        .form__edit-row {
+          margin-bottom: 8px;
+
+          .form__edit-label {
+            display: block;
+            margin-bottom: 4px;
+            font-size: 18px;
+          }
+
+          .form__edit-textinput {
+            @include postFormTextInput;
+          }
+
+          .form__edit-textarea {
+            @include postFormTextArea;
+          }
+        }
+
+        .form__edit-submit {
+          @include btnUpdatedPost;
+        }
+
+        .form__edit-cancel {
+          @include btnCancelUpdatedPost;
+        }
+      }
+    }
+  }
+
+  .post__footer {
+    display: flex;
+    align-content: center;
+    gap: 4px;
+    padding: 12px 0px;
+  }
+}
+
+//Post
+.post {
+  .post__footer {
+    .post__btn {
       border: none;
       border-radius: 8px;
-      box-shadow: 0px 2px 1px #ddd;
-      color: #f9eeff;
-      font-family: "Poppins", sans-serif;
-      font-weight: 600;
-      font-size: 18px;
-      padding: 24px 32px;
+      cursor: pointer;
+      padding: 12px 24px;
+    }
 
+    .post__btn-edit {
+      background-color: $p4;
+      color: $p1;
       transition: all ease-in-out 0.3s;
 
       &:hover {
@@ -58,101 +210,70 @@
       }
     }
 
-    .post__form-wrapper {
-      .post__form {
-        width: 100%;
+    .post__btn-del {
+      background-color: $p2;
+      color: $p4;
+      transition: all ease-in-out 0.3s;
 
-        .post__form-row {
-          margin-bottom: 12px;
-          width: 100%;
+      &:hover {
+        background-color: $p3;
+        color: $white;
+      }
+    }
 
-          .post__form-label {
-            font-size: 18px;
-            margin-bottom: 4px;
-            display: block;
-          }
+    .post__btn-comments {
+      background-color: #c9c9c9;
+      color: $gray-4;
+      transition: all ease-in-out 0.3s;
 
-          .post__form-textinput {
-            border: 1px solid #cbb3ff;
-            border-radius: 8px;
-            height: 52px;
-            padding: 8px;
-            width: 100%;
-
-            &:focus {
-              background: #cbb3ff;
-            }
-          }
-
-          .post__form-textarea {
-            border: 1px solid #cbb3ff;
-            border-radius: 8px;
-            height: 120px;
-            padding: 8px;
-            width: 100%;
-
-            &:focus {
-              background: #cbb3ff;
-            }
-          }
-
-          .post__form-submit {
-            background-color: rgba(119, 54, 255, 1);
-            border: none;
-            border-radius: 8px;
-            box-shadow: 0px 2px 1px #ddd;
-            color: #f9eeff;
-            cursor: pointer;
-            font-family: "Poppins", sans-serif;
-            font-weight: 600;
-            font-size: 18px;
-            margin-bottom: 4px;
-            padding: 24px 32px;
-            width: 100%;
-            transition: all ease-in-out 0.3s;
-
-            &:hover {
-              background-image: linear-gradient(
-                90deg,
-                rgba(49, 16, 120, 1),
-                rgba(81, 0, 252, 1)
-              );
-            }
-          }
-
-          .post__form-cancel {
-            background-color: #f2f2f2;
-            cursor: pointer;
-            border: none;
-            border-radius: 8px;
-            box-shadow: 0px 2px 1px #ddd;
-            color: #414141;
-            font-family: "Poppins", sans-serif;
-            font-weight: 600;
-            font-size: 18px;
-            padding: 24px 32px;
-            width: 100%;
-
-            transition: all ease-in-out 0.3s;
-
-            &:hover {
-              background-color: #b795ff;
-              color: #f9eeff;
-            }
-          }
-        }
+      &:hover {
+        background-color: $gray-4;
+        color: #c9c9c9;
       }
     }
   }
 
-  @media screen and (min-width: 800px) {
-    .post__create {
-      height: 100vh;
+  .post__comments {
+    .post__coments-header {
+      padding: 20px 0px;
+
+      .post__comments-title {
+        margin-bottom: 20px;
+      }
     }
 
-    .post__form-rowbtn {
-      display: flex;
-      gap: 20px;
+    .post__comments-body {
+      font-size: 18px;
+      line-height: 24px;
+      margin-bottom: 20px;
+    }
+  }
+
+  @media screen and (min-width: 800px) {
+    .post {
+      margin-bottom: 12px;
+      padding: 24px 32px;
+    }
+
+    .post__header {
+      padding: 0;
+    }
+  }
+}
+
+//Posts
+.posts {
+  width: 100%;
+
+  .posts__container {
+    max-width: 90%;
+    margin: auto;
+
+    .posts_list-title {
+      color: $p4;
+      font-size: 32px;
+      font-weight: 900;
+      margin: 20px 0;
     }
   }
 }

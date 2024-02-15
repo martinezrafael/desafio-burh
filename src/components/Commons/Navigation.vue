@@ -28,13 +28,13 @@ const navItems = ref(["Página Inicial", "Posts", "Usuários", "Contato"]);
 }
 
 .nav__list-href {
-  color: #fff;
+  color: $white;
   font-weight: 600;
   transition: all ease-in-out 0.3s;
 }
 
 .nav__list-href:hover {
-  color: #915dff;
+  color: $p4;
   text-decoration: underline;
 }
 </style>

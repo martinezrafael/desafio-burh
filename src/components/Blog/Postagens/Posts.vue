@@ -41,18 +41,4 @@ onMounted(() => {
 });
 </script>
 
-<style scoped>
-.posts {
-  width: 100%;
-}
-.posts__container {
-  max-width: 90%;
-  margin: auto;
-}
-.posts_list-title {
-  color: #915dff;
-  font-size: 32px;
-  font-weight: 900;
-  margin: 20px 0;
-}
-</style>
+<style src="./posts.scss" lang="scss" scoped></style>

@@ -1,0 +1,23 @@
+@mixin postFormTextInput() {
+  border: 2px solid $p2;
+  border-radius: 8px;
+  height: 52px;
+  padding: 8px;
+  width: 100%;
+
+  &:focus {
+    background: $p2;
+  }
+}
+
+@mixin postFormTextArea() {
+  border: 2px solid $p2;
+  border-radius: 8px;
+  height: 120px;
+  padding: 8px;
+  width: 100%;
+
+  &:focus {
+    background: $p2;
+  }
+}
