@@ -165,7 +165,6 @@ const updatePost = async () => {
       userId: props.userId,
     };
     const response = await api.updatePost(props.postId, payload);
-    console.log(response);
     newTitle.value = "";
     newBody.value = "";
     editingPost.value = false;

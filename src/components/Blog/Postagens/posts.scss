@@ -10,12 +10,6 @@
   padding: 24px 0px;
   width: 100%;
 
-  @media screen and (min-width: 800px) {
-    .post__create {
-      height: 100vh;
-    }
-  }
-
   .post__create-container {
     max-width: 90%;
     margin: auto;
@@ -52,6 +46,7 @@
           margin-bottom: 12px;
 
           .post__form-label {
+            color: $p1;
             display: block;
             margin-bottom: 4px;
           }
@@ -250,7 +245,6 @@
   }
 }
 
-//Posts
 .posts {
   width: 100%;
 
@@ -259,10 +253,140 @@
     margin: auto;
 
     .posts_list-title {
-      color: $p4;
-      font-size: 32px;
-      font-weight: 900;
-      margin: 20px 0;
+      @include postTitle;
+      margin: 12px 0;
+    }
+  }
+}
+
+//reponsive
+@media (min-width: 800px) {
+  //post create
+  .post__create {
+    height: 72vh;
+    position: relative;
+
+    .post__create-cta {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .post__create-container {
+      display: flex;
+      align-items: center;
+
+      .post__form-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        justify-content: space-between;
+        width: 100%;
+
+        .post__form {
+          .post__form-rowbtn {
+            display: flex;
+            flex-direction: row;
+            gap: 12px;
+          }
+        }
+      }
+    }
+  }
+
+  //post
+  .post {
+    background: $p1;
+    border: 2px solid $p4;
+    margin-bottom: 32px;
+    padding: 12px 24px;
+    width: 100%;
+
+    .post__header {
+      justify-content: space-between;
+      .post__user {
+        background-color: $p4;
+        color: $p1;
+      }
+
+      .post__id {
+        background-color: $p4;
+        color: $p1;
+      }
+    }
+
+    .post__content {
+      padding: 12px 0px;
+      max-width: 80%;
+
+      .post__title {
+        @include secondTitlePost;
+        margin-bottom: 4px;
+      }
+
+      .post__edit {
+        margin-top: 12px;
+
+        .form__edit {
+          padding: 12px 0;
+
+          .form__edit-row {
+            .form__edit-label {
+              display: block;
+              margin-bottom: 4px;
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+
+    .post__footer {
+      padding: 20px 0px;
+    }
+
+    .post__comments {
+      .post__comments-title {
+        @include secondTitlePost;
+        margin-bottom: 12px;
+      }
+
+      .post__comments-list {
+        .post__comments-item {
+          margin-bottom: 24px;
+          border-bottom: 1px solid $p3;
+          padding: 20px 0;
+          .post__coments-header {
+            padding: 24px 0;
+
+            .post__coments-id {
+              background-color: $p4;
+              color: $p1;
+            }
+          }
+
+          .post__coments-content {
+            max-width: 80%;
+            .post__coments-name {
+              margin-bottom: 8px;
+            }
+
+            .post__comments-body {
+              font-size: 16px;
+            }
+          }
+
+          .post__comments-footer {
+            .post__comments-email {
+              color: $p4;
+
+              &:hover {
+                font-weight: 600;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

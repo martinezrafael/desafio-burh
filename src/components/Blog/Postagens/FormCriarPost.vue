@@ -15,12 +15,14 @@
         </button>
       </div>
       <div class="post__form-wrapper" v-else>
-        <h2 class="post__title">Oba! Que legal que você decidiu postar!</h2>
-        <p class="post__description">
-          Dica: Pense em algo que você adora, seja música, cinema, restaurantes
-          ou qualquer outro assunto que te fascine. Afinal, escrever sobre o que
-          gostamos faz toda a diferença!
-        </p>
+        <div>
+          <h2 class="post__title">Oba! Que legal que você decidiu postar!</h2>
+          <p class="post__description">
+            Dica: Pense em algo que você adora, seja música, cinema,
+            restaurantes ou qualquer outro assunto que te fascine. Afinal,
+            escrever sobre o que gostamos faz toda a diferença!
+          </p>
+        </div>
         <form @submit.prevent="handleSubmit" class="post__form">
           <div class="post__form-row">
             <label class="post__form-label" for="userId">Usuário</label>
@@ -116,8 +118,6 @@ const handleSubmit = async () => {
     userId.value = "";
 
     postEditing.value = false;
-
-    console.log(postCreated.value);
   } catch (error) {
     console.error({ message: error.message });
   }
