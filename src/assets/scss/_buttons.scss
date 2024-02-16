@@ -79,3 +79,51 @@
   cursor: pointer;
   padding: 12px 24px;
 }
+
+@mixin btnEditPost() {
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 12px 24px;
+  background-color: $p4;
+  color: $p1;
+  transition: all ease-in-out 0.3s;
+
+  &:hover {
+    background-image: linear-gradient(
+      90deg,
+      rgba(49, 16, 120, 1),
+      rgba(81, 0, 252, 1)
+    );
+  }
+}
+
+@mixin btnDeletePost() {
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 12px 24px;
+  background-color: $p2;
+  color: $p4;
+  transition: all ease-in-out 0.3s;
+
+  &:hover {
+    background-color: $p3;
+    color: $white;
+  }
+}
+
+@mixin btnComments() {
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #c9c9c9;
+  color: $gray-4;
+  padding: 0px 8px;
+  transition: all ease-in-out 0.3s;
+
+  &:hover {
+    background-color: $gray-4;
+    color: #c9c9c9;
+  }
+}

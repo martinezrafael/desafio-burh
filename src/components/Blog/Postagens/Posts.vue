@@ -1,7 +1,7 @@
 <template>
   <section class="posts">
     <div class="posts__container">
-      <h2 class="posts_list-title">Posts</h2>
+      <h2 class="posts_list-title">Feed</h2>
       <div class="posts__list" v-for="post in postsFetched" :key="post.id">
         <Post
           :userId="post.userId"

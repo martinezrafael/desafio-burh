@@ -47,18 +47,16 @@
       </div>
     </div>
     <div class="post__footer" v-if="!openComments">
-      <button class="post__btn post__btn-edit" @click="editPost">Editar</button>
-      <button class="post__btn post__btn-del" @click="deletePost">
-        Deletar
-      </button>
-      <button class="post__btn post__btn-comments" @click="showComments">
+      <button class="post__btn-edit" @click="editPost">Editar</button>
+      <button class="post__btn-del" @click="deletePost">Deletar</button>
+      <button class="post__btn-comments" @click="showComments">
         Ler Comentários
       </button>
     </div>
     <div class="post__comments" v-else>
       <h2 class="post__comments-title">Comentários</h2>
       <div class="post__comments-list">
-        <button class="post__btn post__btn-comments" @click="hideComments">
+        <button class="post__btn-comments" @click="hideComments">
           Esconder Comentários
         </button>
         <div
@@ -72,14 +70,17 @@
             >
           </div>
           <div class="post__coments-content">
-            <h4 class="post__coments-name">{{ comment.title }}</h4>
+            <h4 class="post__coments-name">{{ comment.name }}</h4>
             <p class="post__comments-body">
               {{ comment.body }}
             </p>
           </div>
           <div class="post__comments-footer">
-            <a href="#" class="post__comments-email">
-              {{ comment.email }}
+            <a
+              :href="`mailto:${formatLowerCase(comment.email)}`"
+              class="post__comments-email"
+            >
+              {{ formatLowerCase(comment.email) }}
             </a>
           </div>
         </div>
@@ -91,6 +92,7 @@
 <script setup>
 import { ref, defineProps } from "vue";
 import * as api from "../../../services/api";
+import { formatLowerCase } from "../../../helpers/formatLowerCase";
 
 const props = defineProps({
   userId: {

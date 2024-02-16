@@ -65,7 +65,7 @@
           }
 
           .post__form-countCarachters {
-            color: #000;
+            color: $p1;
           }
         }
 
@@ -183,80 +183,69 @@
     align-content: center;
     gap: 4px;
     padding: 12px 0px;
-  }
-}
-
-//Post
-.post {
-  .post__footer {
-    .post__btn {
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      padding: 12px 24px;
-    }
 
     .post__btn-edit {
-      background-color: $p4;
-      color: $p1;
-      transition: all ease-in-out 0.3s;
-
-      &:hover {
-        background-image: linear-gradient(
-          90deg,
-          rgba(49, 16, 120, 1),
-          rgba(81, 0, 252, 1)
-        );
-      }
+      @include btnEditPost;
     }
 
     .post__btn-del {
-      background-color: $p2;
-      color: $p4;
-      transition: all ease-in-out 0.3s;
-
-      &:hover {
-        background-color: $p3;
-        color: $white;
-      }
+      @include btnDeletePost;
     }
 
     .post__btn-comments {
-      background-color: #c9c9c9;
-      color: $gray-4;
-      transition: all ease-in-out 0.3s;
-
-      &:hover {
-        background-color: $gray-4;
-        color: #c9c9c9;
-      }
+      @include btnComments;
     }
   }
 
   .post__comments {
-    .post__coments-header {
-      padding: 20px 0px;
-
-      .post__comments-title {
-        margin-bottom: 20px;
-      }
-    }
-
-    .post__comments-body {
-      font-size: 18px;
-      line-height: 24px;
-      margin-bottom: 20px;
-    }
-  }
-
-  @media screen and (min-width: 800px) {
-    .post {
+    .post__comments-title {
+      @include secondTitlePost;
       margin-bottom: 12px;
-      padding: 24px 32px;
     }
 
-    .post__header {
-      padding: 0;
+    .post__comments-list {
+      .post__btn-comments {
+        @include btnComments;
+        padding: 12px 24px;
+      }
+
+      .post__comments-item {
+        margin-bottom: 8px;
+        .post__coments-header {
+          padding: 12px 0;
+
+          .post__coments-id {
+            background-color: $p2;
+            color: $p4;
+            padding: 2px;
+            border-radius: 4px;
+            box-shadow: 0px 2px 1px $p4;
+          }
+        }
+
+        .post__coments-content {
+          .post__coments-name {
+            @include secondTitlePost;
+          }
+
+          .post__comments-body {
+            color: $gray-4;
+            font-size: 18px;
+            line-height: 24px;
+            margin-bottom: 20px;
+          }
+        }
+
+        .post__comments-footer {
+          .post__comments-email {
+            color: $p4;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
     }
   }
 }
