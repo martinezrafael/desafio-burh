@@ -1,11 +1,11 @@
-@import "../../../assets/scss/colors";
-@import "../../../assets/scss/buttons";
-@import "../../../assets/scss/title";
-@import "../../../assets/scss/bodyText";
-@import "../../../assets/scss/input";
+@import "../../../../assets/scss/colors";
+@import "../../../../assets/scss/buttons";
+@import "../../../../assets/scss/title";
+@import "../../../../assets/scss/bodyText";
+@import "../../../../assets/scss/input";
 
 .post__create {
-  background: url("../../../assets/image/bg/bg-intro.jpg") no-repeat
+  background: url("../../../../assets/image/bg/bg-intro.jpg") no-repeat
     center/cover fixed;
   padding: 24px 0px;
   width: 100%;

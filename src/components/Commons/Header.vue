@@ -18,26 +18,4 @@ const props = defineProps({
 });
 </script>
 
-<style scoped>
-.header {
-  background-color: #1b1b1b;
-  padding: 24px 0px;
-}
-
-.header__container {
-  max-width: 90%;
-  margin: auto;
-  display: flex;
-  align-items: center;
-}
-
-.logo {
-  font-family: "Poppins", sans-serif;
-  font-size: 40px;
-  font-weight: 900;
-}
-
-.logo__href {
-  color: $p4;
-}
-</style>
+<style lang="scss" src="./scss/header.scss" scoped></style>

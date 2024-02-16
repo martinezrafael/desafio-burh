@@ -1,0 +1,23 @@
+@import "../../../assets/scss/colors";
+
+.header {
+  background-color: $gray-7;
+  padding: 24px 0px;
+
+  .header__container {
+    max-width: 90%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+
+    .logo__href {
+      color: $p4;
+      text-decoration: none;
+      .logo {
+        font-family: "Poppins", sans-serif;
+        font-size: 40px;
+        font-weight: 900;
+      }
+    }
+  }
+}

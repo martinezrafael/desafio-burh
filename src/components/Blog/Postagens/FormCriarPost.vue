@@ -124,4 +124,4 @@ const handleSubmit = async () => {
 };
 </script>
 
-<style src="./posts.scss" lang="scss" scoped></style>
+<style src="./scss/posts.scss" lang="scss" scoped></style>
